@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4cj0b0awo0ex"]
+
+[ext_resource type="Texture2D" uid="uid://bifofxsuk6o3m" path="res://art/placeholder_map.png" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://c3rln2fj0akc0" path="res://art/placeholder_character.png" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://dce20yqw2hq0i" path="res://scripts/traveler.gd" id="2_sugp2"]
+
+[sub_resource type="Curve2D" id="Curve2D_o5qli"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 847, 91, 0, 0, 0, 0, 1234, 225, 0, 0, 0, 0, 1477, 473, 0, 0, 0, 0, 1383, 744, 0, 0, 0, 0, 954, 968, 0, 0, 0, 0, 451, 874, 0, 0, 0, 0, 225, 543, 0, 0, 0, 0, 425, 225, 0, 0, 0, 0, 847, 91)
+}
+point_count = 9
+
+[node name="Main" type="Node2D"]
+
+[node name="Map" type="Sprite2D" parent="."]
+position = Vector2(952.50006, 526)
+scale = Vector2(1.263672, 1.1088461)
+texture = ExtResource("1_o5qli")
+
+[node name="TravelPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_o5qli")
+
+[node name="Traveler" type="PathFollow2D" parent="TravelPath"]
+position = Vector2(847, 91)
+rotation = 0.33333305
+rotates = false
+script = ExtResource("2_sugp2")
+
+[node name="PlayerSprite" type="Sprite2D" parent="TravelPath/Traveler"]
+position = Vector2(-97.44534, -30.812424)
+rotation = -0.3584798
+scale = Vector2(0.12013021, 0.12013021)
+texture = ExtResource("2_0wfyh")
+centered = false
